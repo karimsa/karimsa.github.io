@@ -37,10 +37,10 @@
       </div> 
 
       <div class="projects">
-        <div class="project" ng-if="projects.length > 0" ng-repeat="(index,project) in projects" id="project-{{index}}">
-          <img style="display: none; " ng-src="https://raw.githubusercontent.com/{{project.full_name}}/master/
+        <div class="project" ng-if="projects.length > 0" ng-repeat="(index,project) in projects" id="project-{{index}}" ng-click="open(project)">
+          <img style="display: none; " ng-src="https://raw.githubusercontent.com/karimsa/{{project.name}}/master/
 .alibhai.co/pc.png" ng-load="ready(index)" ng-error="fail(index)">
-          <div class="project-image" style="background-image: url(https://raw.githubusercontent.com/{{project.full_name}}/master/.alibhai.co/pc.png); ">
+          <div class="project-image" style="background-image: url(https://raw.githubusercontent.com/karimsa/{{project.name}}/master/.alibhai.co/pc.png); ">
             <div class="wrapper">
               <p>{{project.description}}</p>
             </div>
