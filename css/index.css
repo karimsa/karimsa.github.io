@@ -244,3 +244,41 @@ footer {
 footer p {
   font-size: 1rem;
 }
+
+@media (max-width: 767px) {
+    a::after {
+        display: none !important;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar .navbar-brand,
+    .navbar .navbar-nav {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+    .navbar .navbar-nav {
+        margin-top: 1rem;
+    }
+
+    .container .branding {
+        padding: 0;
+    }
+
+    .container .branding h1 {
+        font-size: 2rem;
+    }
+
+    .container .projects .project {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    footer {
+        padding: 1rem;
+    }
+}
