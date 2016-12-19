@@ -1,0 +1,246 @@
+/**
+ * css/index.css - alibhai.co
+ *
+ * Licensed under CC-BY 4.0.
+ * Copyright (C0 2016 Karim Alibhai.
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  transition: .3s all ease;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.navbar {
+  width: 100%;
+  padding: 2rem 3rem;
+}
+
+a {
+  opacity: .5;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  color: #000;
+  outline: none; /* outline is replaced by border-bottom */
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  opacity: 1;
+}
+
+.navbar a::after {
+  content: ' ';
+  display: inline-block;
+  float: left;
+  margin-top: 1rem;
+  width: 50%;
+  height: 2px;
+  background: #000;
+  opacity: 0;
+  transition: .7s width ease, .6s opacity ease;
+}
+
+.navbar a:hover::after,
+.navbar a:focus::after,
+.navbar a:active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.navbar .navbar-brand {
+  opacity: 1;
+  float: left;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-nav {
+  float: right;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+.navbar .navbar-nav li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .navbar-nav li > a {
+  padding: 1rem;
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.container {
+  padding: 2rem;
+  width: 100%;
+}
+
+.container .branding {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.container .branding h1 {
+  font-size: 4rem;
+}
+
+.container .projects {
+  padding: 3rem 2rem;
+}
+
+.container .projects .project {
+  display: inline-block;
+  width: 32%;
+  margin-left: 2%;
+  opacity: 0;
+
+  -webkit-transition: .7s opacity ease;
+  -moz-transition:  .7s opacity ease;
+  transition: .7s opacity ease;
+}
+
+.container .projects .project.ready {
+  opacity: 1;
+}
+
+.container .projects .project {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container .projects .project:hover {
+  cursor: pointer;
+}
+
+.container .projects .project:hover .project-image {
+    opacity: .9;
+}
+
+.container .projects .project:nth-child(3n+1) {
+    margin-left: 0;
+}
+
+.container .projects .project .project-image {
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center center;
+
+  display: table;
+}
+
+.container .projects .project .project-image .wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  background: rgba(255,255,255,.8);
+  color: #000;
+  font-weight: 700;
+  letter-spacing: .05rem;
+  opacity: 0;
+  padding: 2rem;
+}
+
+.container .projects .project:hover .project-image .wrapper {
+    opacity: 1;
+}
+
+.container .projects .project .project-name {
+  text-align: center;
+  padding: 1rem;
+  font-size: .9rem;
+  font-weight: 700;
+  opacity: .5;
+  text-transform: uppercase;
+}
+
+.container .projects .project:hover .project-name {
+    opacity: 1;
+}
+
+.loader {
+  width: 3rem;
+  margin: 0 auto;
+}
+
+.loader.ng-leave {
+  opacity: 1;
+  transition: .3s opacity ease;
+}
+
+.loader.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.loader > div {
+  background: #000;
+  display: inline-block;
+  margin-left: .5rem;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  float: left;
+  
+  -webkit-animation: loader 3s infinite;
+  animation: loader 3s infinite;
+}
+
+.loader .two {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@-webkit-keyframes loader {
+  0% { margin-top: 0 }
+  50% { margin-top: 2rem }
+  100% { margin-top: 0 }
+}
+
+@keyframes loader {
+  0% { margin-top: 0 }
+  50% { margin-top: 2rem }
+  100% { margin-top: 0 }
+}
+
+footer {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 3rem;
+  text-align: center;
+  border-top: solid 1px;
+}
+
+footer p {
+  font-size: 1rem;
+}

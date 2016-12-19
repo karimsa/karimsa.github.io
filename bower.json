@@ -1,0 +1,23 @@
+{
+  "name": "alibhai.co",
+  "authors": [
+    "Karim Alibhai <karim@alibhai.co>"
+  ],
+  "description": "Where I come to show-off.",
+  "main": "index.html",
+  "license": "CC-BY",
+  "homepage": "http://alibhai.co/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0"
+  }
+}
