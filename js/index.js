@@ -61,10 +61,8 @@
       window.open('https://github.com/karimsa/' + project.name)
     }
 
-    $http.get('https://api.github.com/users/karimsa/repos').then(function (res) {
-      res.data.sort(function (a, b) {
-        return (new Date(b.updated_at)) - (new Date(a.updated_at))
-      }).forEach(function (repo) {
+    $http.get('https://api.github.com/users/karimsa/repos?sort=updated').then(function (res) {
+      res.data.forEach(function (repo) {
         if (repo.fork === false && repo.description) {
           $scope.projects.push({
             name: repo.name,
