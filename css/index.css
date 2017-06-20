@@ -133,15 +133,12 @@ a:active {
 }
 
 .container .projects .project {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.container .projects .project:hover {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
-.container .projects .project:hover .project-image {
+.container .projects .project .project-image {
     opacity: .9;
 }
 
@@ -168,7 +165,7 @@ a:active {
   color: #000;
   font-weight: 700;
   letter-spacing: .05rem;
-  opacity: 0;
+  opacity: .5;
   padding: 2rem;
 }
 
