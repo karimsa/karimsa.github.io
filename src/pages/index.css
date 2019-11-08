@@ -1,0 +1,24 @@
+.display-1 {
+	font-size: 4rem;
+}
+
+.lift, .lift:hover {
+    transition: .3s transform linear;
+}
+
+.lift:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+
+.technology-image {
+    max-height: 6rem;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.border-thick {
+    border: solid 3px;
+}

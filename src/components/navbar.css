@@ -1,0 +1,28 @@
+.navbar a {
+    position: relative;
+}
+
+.navbar a::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background: var(--primary);
+    opacity: 0;
+    transition: .7s width ease, .6s opacity ease;
+}
+
+.navbar .navbar-nav a.nav-link:active,
+.navbar .navbar-nav a.nav-link:focus,
+.navbar .navbar-nav a.nav-link:hover {
+    color: var(--primary);
+}
+
+.navbar a:active:after,
+.navbar a:focus:after,
+.navbar a:hover:after {
+    width: 100%;
+    opacity: 1;
+}
