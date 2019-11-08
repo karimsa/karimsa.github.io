@@ -50,7 +50,7 @@ function Technologies({ images }) {
     <div className="row align-items-center justify-content-center pt-4">
       {error && <p className="col-auto text-muted mb-0">Technologies:</p>}
       {images.map(([label, image]) => (
-        <div class="col-3" key={label}>
+        <div class="col text-center" key={label}>
           <Technology label={label} image={image} onError={setError} />
         </div>
       ))}
@@ -175,29 +175,40 @@ const colors = [
 function ProjectCard({ project, align, index }) {
   return (
     <div className="row my-4 py-4">
-      <div className={"col d-flex align-items-center" + (align === 'left' ? ' order-md-1' : '')}>
-        <div>
-          {project.preview && project.preview.image ? (
-            <a href={project.preview.link} target="_blank" rel="noreferrer noopener">
-              <img src={project.preview.image} className="img-fluid rounded shadow-sm lift" alt="Preview for the project" />
-            </a>
-          ) : (
-            <img src={project.preview} className="img-fluid rounded shadow-sm" alt="Preview for the project" />
-          )}
-          {project.technologies && (
-            <Technologies images={project.technologies} />
-          )}
-        </div>
-      </div>
       <div className="col">
-        <div>
-          <h3 className={"text-uppercase mb-4 " + (colors[index % colors.length])}>{project.name}</h3>
-          {(project.github || project.website) && <p>
-            {project.github && <a className="btn btn-dark lift mr-2" href={'https://github.com/' + project.github}><i className="fab fa-github-square mr-1" /> Github</a>}
-            {project.website && <a className="btn btn-primary lift mr-2" href={project.website}><i className="fas fa-link mr-1" />Preview</a>}
-          </p>}
-          {project.description}
+        {index > 0 && <div className="row mb-5 py-5">
+          <div className="col">
+            <hr className="border-primary" />
+          </div>
+        </div>}
+
+        <div className="row">
+          <div className={"col d-flex align-items-center" + (align === 'left' ? ' order-md-1' : '')}>
+            <div>
+              {project.preview && project.preview.image ? (
+                <a href={project.preview.link} target="_blank" rel="noreferrer noopener">
+                  <img src={project.preview.image} className="img-fluid rounded shadow-sm lift" alt="Preview for the project" />
+                </a>
+              ) : (
+                <img src={project.preview} className="img-fluid rounded shadow-sm" alt="Preview for the project" />
+              )}
+            </div>
+          </div>
+          <div className="col">
+            <div>
+              <h3 className={"text-uppercase mb-4 " + (colors[index % colors.length])}>{project.name}</h3>
+              {(project.github || project.website) && <p>
+                {project.github && <a className="btn btn-dark lift mr-2" href={'https://github.com/' + project.github}><i className="fab fa-github-square mr-1" /> Github</a>}
+                {project.website && <a className="btn btn-primary lift mr-2" href={project.website}><i className="fas fa-link mr-1" />Preview</a>}
+              </p>}
+              {project.description}
+            </div>
+          </div>
         </div>
+
+        {project.technologies && (
+          <Technologies images={project.technologies} />
+        )}
       </div>
     </div>
   )
@@ -219,14 +230,14 @@ export default function IndexPage() {
           <div className="card-body">
             <div className="row">
               <div className="col d-flex align-items-center justify-content-center">
-                <img src="https://www.gravatar.com/avatar/0a1d24b4dddc47282cdc22f47ac4dd02?s=500" className="img-fluid rounded shadow-sm border-primary border-thick" />
+                <img src="https://www.gravatar.com/avatar/0a1d24b4dddc47282cdc22f47ac4dd02?s=500" className="img-fluid rounded shadow-sm border-primary border-thick" alt="my face" />
               </div>
 
               <div className="col d-flex align-items-center justify-content-center">
                 <div>
                   <h3 className="text-primary text-uppercase">About</h3>
-                  <p className="lead">I'm a complex collection of life experiences and can't be summarized on a website. But I love my family 👨‍👩‍👧‍👦, movies 🍿, politics ☠️, and entrepreneurship 💡. I love learning new things and also giving back whenever possible.</p>
-                  <p className="lead mb-0">I'm also always open to meeting new people - so feel free to send me unsolicited solicitations and we can chat over coffee ☕️.</p>
+                  <p className="lead">I'm a complex collection of life experiences and can't be summarized on a website. But I love my family <span role="img" aria-label="family">👨‍👩‍👧‍👦</span>, movies <span role="img" aria-label="popcorn">🍿</span>, politics <span role="img" aria-label="skull and cross bones">☠️</span>, and entrepreneurship <span role="img" aria-label="lightbulb">💡</span>. I love learning new things and also giving back whenever possible.</p>
+                  <p className="lead mb-0">I'm also always open to meeting new people - so feel free to send me unsolicited solicitations and we can chat over coffee <span role="img" aria-label="coffee cup">☕️</span>.</p>
                 </div>
               </div>
               </div>
