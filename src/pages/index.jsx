@@ -17,13 +17,14 @@ import imgGo from '../images/go.png'
 import imgGulp from '../images/gulp.png'
 import imgRedux from '../images/redux.png'
 import imgBootstrap from '../images/bootstrap.png'
+import { SocialIcons } from '../components/social-icons'
 import './index.css'
 
 function Features({ features }) {
   return (
     <div className="mt-4 text-center">
       {features.map(feature => (
-        <p key={feature} className="d-flex align-items-center text-success">
+        <p key={feature} className="d-flex align-items-center text-success justify-content-center">
           <img className="mr-2" src={imgCheck} alt="✓" width="15" />
           <span>{feature}</span>
         </p>
@@ -47,13 +48,25 @@ function Technology({ label, image, onError }) {
 function Technologies({ images }) {
   const [error, setError] = useState()
   return (
-    <div className="row align-items-center justify-content-center pt-4">
+    <div className="row align-items-center justify-content-center pt-4 text-center text-md-left">
       {error && <p className="col-auto text-muted mb-0">Technologies:</p>}
-      {images.map(([label, image]) => (
-        <div class="col text-center" key={label}>
-          <Technology label={label} image={image} onError={setError} />
+      <div className="col">
+        <div className="row">
+          {images.map(([label, image], index) => (
+            <div class={"col text-center d-flex align-items-center justify-content-center" + (index > 3 ? ' d-none d-md-flex' : '')} key={label}>
+              <Technology label={label} image={image} onError={setError} />
+            </div>
+          ))}
         </div>
-      ))}
+
+        <div className="row d-md-none">
+          {images.slice(3).map(([label, image]) => (
+            <div class="col text-center d-flex align-items-center justify-content-center" key={label}>
+              <Technology label={label} image={image} onError={setError} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
@@ -80,6 +93,8 @@ const projects = [
         <p className="mb-0">Your configuration file simply specifies the services you're monitoring and how to check if they are healthy. Patrol takes care of scheduling regular service checks, maintaining the health history, rendering a web interface, and emitting notifications on success/failure.</p>
         <Features features={[
           'Used in production at HireFast',
+          'Realtime updates with websockets',
+          'Support for notifications via webhooks',
         ]} />
       </React.Fragment>
     ),
@@ -102,6 +117,7 @@ const projects = [
         <p className="mb-0">wiz provides a build command that transpiles, bundles, and minifies your sources. It also comes up a documentation generator, wraps jest with some good defaults, and a benchmark runner.</p>
         <Features features={[
           'Used in production at HireFast',
+          'Lint project sources, generate docs sites, and write benchmarks.',
         ]} />
       </React.Fragment>
     ),
@@ -174,43 +190,45 @@ const colors = [
 
 function ProjectCard({ project, align, index }) {
   return (
-    <div className="row my-4 py-4">
-      <div className="col">
-        {index > 0 && <div className="row mb-5 py-5">
-          <div className="col">
-            <hr className="border-primary" />
-          </div>
-        </div>}
+    <React.Fragment>
+      {index > 0 && <div className="row mb-5 py-5">
+        <div className="col">
+          <hr className="border-primary" />
+        </div>
+      </div>}
 
-        <div className="row">
-          <div className={"col d-flex align-items-center" + (align === 'left' ? ' order-md-1' : '')}>
-            <div>
-              {project.preview && project.preview.image ? (
-                <a href={project.preview.link} target="_blank" rel="noreferrer noopener">
-                  <img src={project.preview.image} className="img-fluid rounded shadow-sm lift" alt="Preview for the project" />
-                </a>
-              ) : (
-                <img src={project.preview} className="img-fluid rounded shadow-sm" alt="Preview for the project" />
-              )}
+      <div className="row my-4 py-4">
+        <div className="col">
+          <div className="row">
+            <div className={"col-12 col-md mb-5 mb-md-0" + (align === 'left' ? ' order-md-1' : '')}>
+              <div>
+                {project.preview && project.preview.image ? (
+                  <a href={project.preview.link} target="_blank" rel="noreferrer noopener">
+                    <img src={project.preview.image} className="img-fluid rounded shadow-sm lift" alt="Preview for the project" />
+                  </a>
+                ) : (
+                  <img src={project.preview} className="img-fluid rounded shadow-sm" alt="Preview for the project" />
+                )}
+
+                {project.technologies && (
+                  <Technologies images={project.technologies} />
+                )}
+              </div>
             </div>
-          </div>
-          <div className="col">
-            <div>
-              <h3 className={"text-uppercase mb-4 " + (colors[index % colors.length])}>{project.name}</h3>
-              {(project.github || project.website) && <p>
-                {project.github && <a className="btn btn-dark lift mr-2" href={'https://github.com/' + project.github}><i className="fab fa-github-square mr-1" /> Github</a>}
-                {project.website && <a className="btn btn-primary lift mr-2" href={project.website}><i className="fas fa-link mr-1" />Preview</a>}
-              </p>}
-              {project.description}
+            <div className="col">
+              <div className="text-center text-md-left">
+                <h3 className={"text-uppercase mb-1 " + (colors[index % colors.length])}>{project.name}</h3>
+                {(project.github || project.website) && <div className="mb-5">
+                  {project.github && <a className="btn btn-dark lift mr-2" href={'https://github.com/' + project.github}><i className="fab fa-github-square mr-1" /> Github</a>}
+                  {project.website && <a className="btn btn-primary lift mr-2" href={project.website}><i className="fas fa-link mr-1" />Preview</a>}
+                </div>}
+                {project.description}
+              </div>
             </div>
           </div>
         </div>
-
-        {project.technologies && (
-          <Technologies images={project.technologies} />
-        )}
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
@@ -220,24 +238,27 @@ export default function IndexPage() {
     
     <div className="row">
       <div className="col">
-        <h1 className="text-center display-1 mt-5 pt-5">I'm an entrepreneur, developer, &amp; speaker. These days, I live at <a href="https://hirefast.ca">HireFast</a>.</h1>
+        <h1 className="text-center display-3 my-5">I'm an entrepreneur, developer, &amp; speaker. These days, I live at <a href="https://hirefast.ca">HireFast</a>.</h1>
       </div>
     </div>
 
-    <div className="row my-5 py-5">
+    <div className="row mb-5 pb-5">
       <div className="col">
-        <div className="card border-none shadow-sm p-5">
+        <div className="card border-none shadow-sm p-md-5">
           <div className="card-body">
             <div className="row">
-              <div className="col d-flex align-items-center justify-content-center">
+              <div className="col-12 col-md d-flex align-items-center justify-content-center mb-5">
                 <img src="https://www.gravatar.com/avatar/0a1d24b4dddc47282cdc22f47ac4dd02?s=500" className="img-fluid rounded shadow-sm border-primary border-thick" alt="my face" />
               </div>
 
               <div className="col d-flex align-items-center justify-content-center">
-                <div>
+                <div className="text-center text-md-left">
                   <h3 className="text-primary text-uppercase">About</h3>
                   <p className="lead">I'm a complex collection of life experiences and can't be summarized on a website. But I love my family <span role="img" aria-label="family">👨‍👩‍👧‍👦</span>, movies <span role="img" aria-label="popcorn">🍿</span>, politics <span role="img" aria-label="skull and cross bones">☠️</span>, and entrepreneurship <span role="img" aria-label="lightbulb">💡</span>. I love learning new things and also giving back whenever possible.</p>
                   <p className="lead mb-0">I'm also always open to meeting new people - so feel free to send me unsolicited solicitations and we can chat over coffee <span role="img" aria-label="coffee cup">☕️</span>.</p>
+                  <div className="pt-5">
+                    <SocialIcons />
+                  </div>
                 </div>
               </div>
               </div>
