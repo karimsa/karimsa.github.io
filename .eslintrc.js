@@ -337,9 +337,10 @@ module.exports = {
 			}
 		],
 		"no-implicit-coercion": "error",
-		"react/prop-types": ["error", {
+		"react/prop-types": ["off", {
 			"ignore": ["children"]
-		}]
+		}],
+		"react/no-unescaped-entities": "off"
 	},
 	"env": {
 		"browser": true,
