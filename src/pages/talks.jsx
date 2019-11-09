@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import { Layout } from "../components/layout"
-import SEO from "../components/seo"
+import { Layout } from '../components/layout'
+import SEO from '../components/seo'
 import imgJsPerf from '../images/js-perf-1.png'
 import imgResilient from '../images/rsx-talk.png'
 import imgBreakMoreThings from '../images/cuhacking.png'
@@ -59,8 +59,16 @@ function TalkCard({ talk }) {
 					<p className="mb-0">{talk.description}</p>
 				</div>
 				<div className="card-footer bg-white">
-					{talk.video && <a href={talk.video} className="mr-2">Video</a>}
-					{talk.slides && <a href={talk.slides} className="mr-2">Slides</a>}
+					{talk.video && (
+						<a href={talk.video} className="mr-2">
+							Video
+						</a>
+					)}
+					{talk.slides && (
+						<a href={talk.slides} className="mr-2">
+							Slides
+						</a>
+					)}
 					{talk.demo && <a href={talk.demo}>Demo</a>}
 				</div>
 			</div>
@@ -69,23 +77,27 @@ function TalkCard({ talk }) {
 }
 
 export default function TalksPage() {
-  return <Layout>
-    <SEO title="Home" />
-    
-    <div className="row py-5">
-		<div className="col">
-			<h1 className="text-center">I enjoy speaking at places. Here's some of the work I've done.</h1>
-		</div>
-	</div>
+	return (
+		<Layout>
+			<SEO title="Home" />
 
-	<div className="row mb-5">
-		<TalkCard talk={talks[0]} />
-		<TalkCard talk={talks[1]} />
-		<TalkCard talk={talks[2]} />
-	</div>
-	<div className="row">
-		<TalkCard talk={talks[3]} />
-		<TalkCard talk={talks[4]} />
-	</div>
-  </Layout>
+			<div className="row py-5">
+				<div className="col">
+					<h1 className="text-center">
+						I enjoy speaking at places. Here's some of the work I've done.
+					</h1>
+				</div>
+			</div>
+
+			<div className="row mb-5">
+				<TalkCard talk={talks[0]} />
+				<TalkCard talk={talks[1]} />
+				<TalkCard talk={talks[2]} />
+			</div>
+			<div className="row">
+				<TalkCard talk={talks[3]} />
+				<TalkCard talk={talks[4]} />
+			</div>
+		</Layout>
+	)
 }

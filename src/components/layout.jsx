@@ -8,9 +8,7 @@ export function Layout({ children }) {
 	return (
 		<React.Fragment>
 			<Navbar />
-			<main className="container">
-				{children}
-			</main>
+			<main className="container">{children}</main>
 			<Footer />
 		</React.Fragment>
 	)
