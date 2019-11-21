@@ -1,6 +1,3 @@
-import 'jquery'
-import 'popper.js'
-import 'bootstrap/dist/js/bootstrap.min.js'
 import React, { useState } from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
