@@ -354,6 +354,7 @@ export function ProfessionalProjects() {
 			key={project.name}
 			project={project}
 			index={index}
+			length={projects.length}
 			align={index % 2 ? 'left' : 'right'}
 		/>
 	))

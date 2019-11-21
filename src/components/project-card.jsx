@@ -54,7 +54,7 @@ function Technologies({ images }) {
 
 const colors = ['success', 'primary', 'warning', 'danger']
 
-export function ProjectCard({ project, align, index }) {
+export function ProjectCard({ project, align, index, length }) {
 	return (
 		<React.Fragment>
 			{index > 0 && (
@@ -65,7 +65,9 @@ export function ProjectCard({ project, align, index }) {
 				</div>
 			)}
 
-			<div className="row my-4 py-4">
+			<div
+				className={'row ' + (index === length - 1 ? 'mt-4 pt-4' : 'my-4 py-4')}
+			>
 				<div className="col">
 					<div className="row">
 						{project.preview && (

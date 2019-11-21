@@ -6,7 +6,7 @@ function SocialLink({ color, href, children, text = 'white' }) {
 			href={href}
 			target="_blank"
 			rel="noreferrer noopener"
-			className={`mr-2 text-${text} bg-${color} py-2 px-3 rounded-lg border-none`}
+			className={`mr-2 text-${text} bg-${color} py-2 px-3 rounded-lg border-none lift`}
 		>
 			{children}
 		</a>
