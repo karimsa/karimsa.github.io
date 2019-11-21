@@ -23,6 +23,14 @@
     max-width: 33.333333%;
 }
 
-a[href]:not(.nav-link):not(.navbar-brand) {
+a {
     border-bottom: dotted 1px;
+}
+
+a:hover,
+a:active,
+a:focus {
+    opacity: .5;
+    border-bottom: none;
+    text-decoration: none;
 }

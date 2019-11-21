@@ -30,3 +30,9 @@
 .border-top-thick {
     border-top: solid 3px;
 }
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    border-bottom: none;
+    opacity: 1;
+}
