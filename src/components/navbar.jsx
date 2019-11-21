@@ -6,7 +6,7 @@ import './navbar.css'
 
 export function Navbar() {
 	return (
-		<div className="navbar navbar-light navbar-expand-md">
+		<div className="navbar navbar-light navbar-expand-md border-top-thick border-success">
 			<div className="container">
 				<Link className="navbar-brand" to="/">
 					<img src={imgLogo} alt="KSA" className="img-fluid" width="60" />
@@ -28,12 +28,12 @@ export function Navbar() {
 					<ul className="navbar-nav ml-auto">
 						<li className="nav-item">
 							<Link to="/" className="nav-link">
-								Home
+								🏡 Home
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link to="/talks" className="nav-link">
-								Talks
+								💡 Talks
 							</Link>
 						</li>
 						<li className="nav-item">
@@ -43,7 +43,7 @@ export function Navbar() {
 								href="https://anchor.fm/TheStartupAddict"
 								className="nav-link"
 							>
-								Podcast
+								🎙 Podcast
 							</a>
 						</li>
 						<li className="nav-item">
@@ -53,7 +53,17 @@ export function Navbar() {
 								href="https://medium.com/@karimsa"
 								className="nav-link"
 							>
-								Blog
+								📖 Blog
+							</a>
+						</li>
+						<li>
+							<a
+								rel="noreferrer noopener"
+								target="_blank"
+								href="https://docs.google.com/document/d/1jDXyyadzKLKR8cDJ1tiGaSL-ajmLxfQawYqZLawJ1-Y/edit?usp=sharing"
+								className="nav-link"
+							>
+								🧗🏽‍♀️ Resume
 							</a>
 						</li>
 						<li className="nav-item">
@@ -63,7 +73,7 @@ export function Navbar() {
 								href="mailto:karim@alibhai.co"
 								className="nav-link"
 							>
-								Contact
+								💌 Contact
 							</a>
 						</li>
 					</ul>
