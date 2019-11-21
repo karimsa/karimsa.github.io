@@ -22,3 +22,7 @@
 .max-col-4 {
     max-width: 33.333333%;
 }
+
+a[href]:not(.nav-link):not(.navbar-brand) {
+    border-bottom: dotted 1px;
+}

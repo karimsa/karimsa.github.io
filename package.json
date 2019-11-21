@@ -13,7 +13,9 @@
     "gatsby-plugin-sharp": "^2.2.34",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-sharp": "^2.3.1",
+    "jquery": "^3.4.1",
     "netlify-cli": "^2.21.0",
+    "popper.js": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -32,7 +34,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

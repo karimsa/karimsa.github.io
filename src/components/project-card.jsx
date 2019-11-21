@@ -52,7 +52,7 @@ function Technologies({ images }) {
 	)
 }
 
-const colors = ['text-success', 'text-primary', 'text-warning', 'text-danger']
+const colors = ['success', 'primary', 'warning', 'danger']
 
 export function ProjectCard({ project, align, index }) {
 	return (
@@ -60,7 +60,7 @@ export function ProjectCard({ project, align, index }) {
 			{index > 0 && (
 				<div className="row mb-5 py-5">
 					<div className="col">
-						<hr className="border-primary" />
+						<hr className={`border-${colors[index % colors.length]}`} />
 					</div>
 				</div>
 			)}
@@ -68,47 +68,55 @@ export function ProjectCard({ project, align, index }) {
 			<div className="row my-4 py-4">
 				<div className="col">
 					<div className="row">
-						<div
-							className={
-								'col-12 col-md mb-5 mb-md-0' +
-								(align === 'left' ? ' order-md-1' : '')
-							}
-						>
-							<div>
-								{project.preview && project.preview.image ? (
-									<a
-										href={project.preview.link}
-										target="_blank"
-										rel="noreferrer noopener"
-									>
+						{project.preview && (
+							<div
+								className={
+									'col-12 col-md mb-5 mb-md-0' +
+									(align === 'left' ? ' order-md-1' : '')
+								}
+							>
+								<div>
+									{project.preview && project.preview.image ? (
+										<a
+											href={project.preview.link}
+											target="_blank"
+											rel="noreferrer noopener"
+										>
+											<img
+												src={project.preview.image}
+												className="img-fluid rounded shadow-sm lift"
+												alt="Preview for the project"
+											/>
+										</a>
+									) : (
 										<img
-											src={project.preview.image}
-											className="img-fluid rounded shadow-sm lift"
+											src={project.preview}
+											className="img-fluid rounded shadow-sm"
 											alt="Preview for the project"
 										/>
-									</a>
-								) : (
-									<img
-										src={project.preview}
-										className="img-fluid rounded shadow-sm"
-										alt="Preview for the project"
-									/>
-								)}
+									)}
 
-								{project.technologies && (
-									<Technologies images={project.technologies} />
-								)}
+									{project.technologies && (
+										<Technologies images={project.technologies} />
+									)}
+								</div>
 							</div>
-						</div>
+						)}
 						<div className="col">
 							<div className="text-center text-md-left">
 								<h3
 									className={
-										'text-uppercase mb-1 ' + colors[index % colors.length]
+										'text-uppercase mb-1 ' +
+										`text-${colors[index % colors.length]}` +
+										(project.preview ? '' : ' text-center h1')
 									}
 								>
 									{project.name}
 								</h3>
+								{!project.preview && project.technologies && (
+									<Technologies images={project.technologies} />
+								)}
+								<p className="mb-5"></p>
 								{(project.github || project.website) && (
 									<div className="mb-5">
 										{project.github && (

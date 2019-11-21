@@ -1,0 +1,36 @@
+.toggle {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: var(--secondary);
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle .toggle-switch {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+}
+
+.toggle.toggle-on {
+    background-color: var(--primary);
+}
+
+.toggle.toggle-on .toggle-switch {
+    top: 0.25rem;
+    left: 2.25rem;
+}
+
+.toggle, .toggle.toggle-on {
+    transition: .1s background-color linear;
+}
+
+.toggle .toggle-switch, .toggle.toggle-on .toggle-switch {
+    transition: .1s top linear, .1s left linear;
+}
