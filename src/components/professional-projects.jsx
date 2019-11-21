@@ -19,8 +19,15 @@ const projects = [
 							Problem (Technical)
 						</p>
 						<p>
-							After onboarding two large customers, Foko Retail's pubsub
-							architecture began to display a large number of issues.
+							After onboarding two large customers,{' '}
+							<a
+								href="https://fokoretail.com"
+								rel="noreferrer noopener"
+								target="_blank"
+							>
+								Foko Retail
+							</a>
+							's pubsub architecture began to display a large number of issues.
 							Specifically, every major action from one of our two big clients
 							would trigger a{' '}
 							<span className="text-danger">
@@ -266,10 +273,18 @@ const projects = [
 							Problem (Technical)
 						</p>
 						<p>
-							Every now and then, Foko Retail's API layer would have troubling
-							issues commands against MongoDB, either due to high throughput or
-							a failover, etc. This was not troubling since databases tend to be
-							pretty resilient and spring back into action quickly.
+							Every now and then,{' '}
+							<a
+								href="https://fokoretail.com"
+								rel="noreferrer noopener"
+								target="_blank"
+							>
+								Foko Retail
+							</a>
+							's API layer would have troubling issues commands against MongoDB,
+							either due to high throughput or a failover, etc. This was not
+							troubling since databases tend to be pretty resilient and spring
+							back into action quickly.
 						</p>
 						<p>
 							However, if this happened during prime business hours, users would
