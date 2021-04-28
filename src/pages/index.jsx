@@ -10,7 +10,9 @@ import imgEvenhandTeam from '../images/evenhand-team.png'
 import './index.css'
 
 // get away from gatsby as fast as possible
-location.href = `https://www.alibhai.co`
+if (global.location) {
+	location.href = `https://www.alibhai.co`
+}
 
 export default function IndexPage() {
 	const [showOSSWork, setShowOSSWork] = useState(false)
