@@ -8,6 +8,9 @@ import imgBreakMoreThings from '../images/cuhacking.png'
 import imgTwilio from '../images/talk-twilio.png'
 import imgOsh from '../images/talk-osh.png'
 
+// get away from gatsby as fast as possible
+location.href = `https://www.alibhai.co`
+
 const talks = [
 	{
 		preview: imgJsPerf,
