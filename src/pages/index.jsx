@@ -1,3 +1,5 @@
+import React from 'react'
+
 // get away from gatsby as fast as possible
 if (global.location) {
 	location.href = `https://www.alibhai.co`
