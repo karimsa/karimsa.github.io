@@ -1,11 +1,3 @@
-# [alibhai.co](https://alibhai.co)
+Old website. Not active anymore.
 
-My personal website.
-
-Built on Gatsby.
-
-## License
-
-Licensed under MIT license.
-
-Copyright (C) 2019-present Karim Alibhai.
+Now it just acts as a redirect to the new site, because of Gatsby's incredibly aggresive service worker.
